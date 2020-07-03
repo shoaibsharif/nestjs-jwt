@@ -30,14 +30,4 @@ userSchema.pre<User>("save", async function () {
   this.password = await bcrypt.hash(this.password, 12);
 });
 
-// const getMethods = (obj: Function): string[] => {
-//   return Object.getOwnPropertyNames(obj.prototype).filter(
-//     (prop) => prop !== "constructor"
-//   );
-// };
 
-// const allProperties = getMethods(User);
-// console.log(allProperties);
-// allProperties.forEach((item: string) => {
-//   userSchema.methods[item] = User.prototype[item];
-// });

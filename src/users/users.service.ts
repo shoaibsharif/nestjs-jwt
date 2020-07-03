@@ -6,7 +6,9 @@ import { show, store } from "quick-crud";
 
 @Injectable()
 export class UsersService {
-  constructor(@InjectModel("User") private readonly userModel: Model<User>) {}
+  constructor(
+    @InjectModel(User.name) private readonly userModel: Model<User>
+  ) {}
 
   async findOne(email: string): Promise<User | undefined> {
     return await show({ model: this.userModel, where: { email } });
